@@ -16,6 +16,10 @@ class Game
     return @board
   end
 
+  def get_board_size()
+    return @board.size()
+  end
+
   def get_player1()
     return @player1
   end

@@ -11,8 +11,8 @@ require_relative( './models/ui' )
 
 
 #homepage
-get '/snakesnladders' do
-  erb( :welcome )
+get '/snakesnladders/new' do
+  erb( :new )
 end
 
 # get '/snakesnladders/:squares/:snakes/:ladders/:name1/:name2' do
@@ -24,25 +24,36 @@ end
 #     erb(:confirm)
 # end
 
-get '/snakesnladders/game_view' do
-  @board = Board.new(params[:squares])
+get '/snakesnladders' do
   @player1 = Player.new(params[:name1])
   @player2 = Player.new(params[:name2])
   @dice = Dice.new()
+  @squares = params[:squares]
+  @snakes = params[:snakes]
+  @ladders = params[:ladders]
   @game = Game.new(@player1, @player2, "setup", @dice)
-  @game.populate_board(params[:squares], params[:snake], params[:ladders])
+  @game.populate_board(params[:squares].to_i, params[:snake].to_i, params[:ladders].to_i)
+
+  erb(:confirm)
+end
+
+post '/snakesnladders' do
+  @player1 = Player.new(params[:name1])
+  @player2 = Player.new(params[:name2])
+  @dice = Dice.new()
+  @squares = params[:squares]
+  @snakes = params[:snakes]
+  @ladders = params[:ladders]
+
+  @game = Game.new(@player1, @player2, "setup", @dice)
+  @game.populate_board(params[:squares].to_i, params[:snake].to_i, params[:ladders].to_i)
+  erb(:confirm)
+end
+
+get '/snakesnladders/game_view' do
   erb(:game_view)
 end
 
-post '/snakesnladders/game_view' do
-  @board = Board.new(params[:squares])
-  @player1 = Player.new(params[:name1])
-  @player2 = Player.new(params[:name2])
-  @dice = Dice.new()
-  @game = Game.new(@player1, @player2, "setup", @dice)
-  
-  erb(:confirm)
-end
 
 
 
