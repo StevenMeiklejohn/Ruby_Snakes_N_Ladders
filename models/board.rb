@@ -9,6 +9,11 @@ class Board
     return @squares[number]
   end
 
+  def get_number_of_square()
+    @squares.size()
+  end
+  
+
 
 
   

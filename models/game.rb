@@ -48,11 +48,11 @@ class Game
 
   def set_snakes(number_of_snakes, number_of_ladders)
     counter = 1
+    snake = generate_random_snake()
     while counter <= number_of_snakes
       square = @board.sample()
-      if(square.get_effect() == 0)
-        snake = generate_random_snake()
-        square.set_effect(snake)
+      if(square.get_effect() == 0 && square.get_number() > (@board.count() - 1) + -snake)
+        square.set_effect(-snake)
         counter += 1
       end
     end
@@ -61,10 +61,10 @@ class Game
 
   def set_ladders(number_of_ladders)
     counter = 1
+    ladder = generate_random_ladder()
     while counter <= number_of_ladders
       square = @board.sample()
-      if(square.get_effect() == 0)
-        ladder = generate_random_ladder()
+      if(square.get_effect() == 0 && square.get_number() < @board.count() + ladder)
         square.set_effect(ladder)
         counter += 1
       end
@@ -74,7 +74,7 @@ class Game
 
 
   def generate_random_snake()
-    range = (-@board.count()..-1)
+    range = (1..@board.count())
     random_number = rand(range)
     # random_snake = -(random_number)
     return random_number
@@ -89,8 +89,6 @@ class Game
   def check_number_of_snakes()
     counter = 0
     for square in @board
-binding.pry
-
       if(square.get_effect() < 0)
         counter += 1
       end
@@ -115,6 +113,10 @@ binding.pry
   def take_turn(player)
     roll = roll_dice()
     player.move(roll)
+    if(check_win(player) == "win")
+      puts "Congratulations #{player.get_name()}! You win"
+      return
+    end
     puts "#{player.get_name()} rolled a #{roll}!"
     check_snake_ladder(player)
   end
@@ -130,8 +132,14 @@ binding.pry
     if(get_square(position).get_effect() > 0)
       player.move(@board[player.get_position].get_effect())
       puts "#{player.get_name()} landed on a ladder and climbs to #{player.get_position()}"
+      if(check_win(player) == "win")
+        puts "Congratulations #{player.get_name()}! You win"
+        return
+      end
+      else
+        puts "#{player.get_name()} moves to #{player.get_position()}"
     end
-    puts "#{player.get_name()} moves to #{player.get_position()}"
+
 
   end
 

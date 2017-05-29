@@ -19,11 +19,14 @@ def get_position()
 end
 
 def set_position(new_position)
-  @position = new_position
+    @position = new_position
 end
 
 def move(amount)
   @position += amount
+  if(@position < 0)
+    @position = 0
+  end
 end
 
 
