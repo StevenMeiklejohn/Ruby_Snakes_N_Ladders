@@ -9,31 +9,19 @@ require_relative( './models/player' )
 require_relative( './models/square' )
 require_relative( './models/ui' )
 
-
 #homepage
 get '/snakesnladders/new' do
   erb( :new )
 end
 
-# get '/snakesnladders/:squares/:snakes/:ladders/:name1/:name2' do
-#     number_of_squares = params[:squares]
-#     no_of_snakes = params[:snakes]
-#     no_of_ladders = params[:ladders]
-#     name1 = params[:name1]
-#     name2 = params[:name2]
-#     erb(:confirm)
-# end
-
 get '/snakesnladders' do
-  @player1 = Player.new(params[:name1])
-  @player2 = Player.new(params[:name2])
-  @dice = Dice.new()
-  @squares = params[:squares]
-  @snakes = params[:snakes]
-  @ladders = params[:ladders]
+  @player1 = GlobalState[:player1]
+  @player2 = GlobalState[:player2]
+  @dice = GlobalState[:dice]
+  @squares = GlobalState[:squares]
+  @snakes = GlobalState[:snakes]
+  @ladders = GlobalState[:ladders]
   @game = Game.new(@player1, @player2, "setup", @dice)
-  @game.populate_board(params[:squares].to_i, params[:snake].to_i, params[:ladders].to_i)
-
   erb(:confirm)
 end
 
@@ -44,26 +32,22 @@ post '/snakesnladders' do
   @squares = params[:squares]
   @snakes = params[:snakes]
   @ladders = params[:ladders]
-
   @game = Game.new(@player1, @player2, "setup", @dice)
-  @game.populate_board(params[:squares].to_i, params[:snake].to_i, params[:ladders].to_i)
+  # @game.populate_board(params[:squares].to_i, params[:snake].to_i, params[:ladders].to_i)
+  GlobalState = {:player1 => @player1, :player2 => @player2, :dice => @dice, :squares => @squares, :snakes => @snakes, :ladders => @ladders}
   erb(:confirm)
 end
 
 get '/snakesnladders/game_view' do
+  @player1 = GlobalState[:player1]
+  @player2 = GlobalState[:player2]
+  @dice = GlobalState[:dice]
+  @squares = GlobalState[:squares]
+  @snakes = GlobalState[:snakes]
+  @ladders = GlobalState[:ladders]
+  @game = Game.new(@player1, @player2, "setup", @dice)
+  @game.populate_board(@squares.to_i, @snakes.to_i, @ladders.to_i)
+  @game.set_board_format()
   erb(:game_view)
 end
 
-
-
-
-
-
-# @board = Board.new([])
-# @player1 = Player.new(player1_name)
-# @player2 = Player.new(player2_name)
-# @game = Game.new(@player1, @player2, "setup", @dice)
-# @dice = Dice.new()
-# @game.populate_board(number_of_squares, number_of_snakes, number_of_ladders)
-# @game.set_status("playing")
-# game_loop()

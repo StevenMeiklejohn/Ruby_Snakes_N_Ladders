@@ -9,6 +9,7 @@ class Game
     @player2 = player2
     @status = status
     @dice = dice
+    @format = "wrapper5"
   end
 
 
@@ -18,6 +19,19 @@ class Game
 
   def get_board_size()
     return @board.size()
+  end
+
+  def get_board_format()
+    return @format
+  end
+
+  def set_board_format()
+    if get_board_size() < 50
+      @format = "wrapper5"
+    end
+    if get_board_size() > 50
+      @format = "wrapper10"
+    end
   end
 
   def get_player1()
@@ -143,8 +157,6 @@ class Game
       else
         puts "#{player.get_name()} moves to #{player.get_position()}"
     end
-
-
   end
 
 
@@ -153,6 +165,8 @@ class Game
       @status = "win"
     end
   end
+
+
 
 
 

@@ -15,8 +15,6 @@ html {
 }
 
 
-
-
 #title {
   border: 4px dashed  #ffffff;
   box-shadow: 0 0 0 2px #ff0030;
@@ -53,7 +51,7 @@ html {
     background-color: #C1BDBC;
     opacity: 0.6;
     position: absolute;
-    top:120px;
+    top:80px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -69,6 +67,50 @@ html {
   left: 0;
   right: 0;
   margin: auto;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.box:nth-child(even) {
+  background-color: #ccc;
+  color: #000;
+}
+
+.wrapper10 {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  width: 600px;
+  height:600px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(10, 10%);
+}
+
+
+.wrapper5 {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  width: 600px;
+  height:600px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(5, 20%);
 }
 
 

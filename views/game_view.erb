@@ -1,9 +1,20 @@
 <body>
 
+<!-- <p><%= @game.get_board_format() %></p> -->
 
-<p>Hi there!</p>
 
+<div class=<%=@game.get_board_format()%> id=<%=@game.get_board_format()%>>
 
+<div class="box box1">1</div>
+  
+<% count = 2%>
+<% while count <= @squares.to_i %>
+
+  <div class="box"><%= count %></div>
+  <% count += 1 %>
+<% end %>
+
+</div>
 
 
 
