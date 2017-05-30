@@ -1,0 +1,36 @@
+<body>
+
+<!-- <p><%= @game.get_board_format() %></p> -->
+
+
+<div class=<%=@game.get_board_format()%> id=<%=@game.get_board_format()%>>
+
+<div class="box box1">1</div>
+<!-- generate board --> 
+<% player1_pos = @game.get_player1().get_position() %>
+<% player2_pos = @game.get_player2().get_position() %>
+<% count = 2%>
+
+<% while count <= @squares.to_i %>
+    <div class=<% if count == player1_pos %>
+                    <%= "box_red"%>
+                    <% end %>
+                <% if count == player2_pos %>
+                    <%= "box_blue"%>
+                    <% end %>
+                    <%= "box" %>> 
+                    <%= count %>  
+                    </div>
+                    <% count += 1 %>
+<% end %>
+
+
+
+
+
+</div>
+
+
+
+
+</body>

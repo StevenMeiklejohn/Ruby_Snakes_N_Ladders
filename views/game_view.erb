@@ -4,19 +4,21 @@
 
 
 <div class=<%=@game.get_board_format()%> id=<%=@game.get_board_format()%>>
-
 <div class="box box1">1</div>
-  
+<!-- generate board --> 
 <% count = 2%>
-<% while count <= @squares.to_i %>
+<% type ="box"%>
+<% player1 = @game.get_player1() %>
+<% player2 = @game.get_player2() %>
 
-  <div class="box"><%= count %></div>
-  <% count += 1 %>
+<% while count <= @squares.to_i %>
+    <div class=<% type = @game.player_square(count, @player1, @player2) %>
+               <%= type %>> 
+               <%=count %>  
+               </div>
+               <% count += 1 %>
 <% end %>
 
 </div>
-
-
-
 
 </body>

@@ -82,6 +82,23 @@ html {
   color: #000;
 }
 
+.box_red {
+  background-color: red;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.box_blue {
+  background-color: blue;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 13px;
+}
+
+
 .wrapper10 {
   position: absolute;
   top:0;

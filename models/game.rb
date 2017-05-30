@@ -42,6 +42,38 @@ class Game
     return @player2
   end
 
+  def player_square(count, player1, player2)
+    # puts(count)
+    # puts(player1.get_position())
+    # puts(player2.get_position())
+    if player1.get_position() == count
+      return "box_red"
+    end
+    if player2.get_position() == count
+      binding.pry
+      return "box_blue"
+    end
+    return "box"
+  end
+
+
+  # def player1_square(count, player)
+  #   if player.get_position() == count
+  #     return "box_red"
+  #   else
+  #     return "box"
+  #   end
+  # end
+
+  # def player2_square(count, player)
+  #   if player.get_position() == count
+  #     return "box_blue"
+  #   else 
+  #     return "box"
+  #   end
+  # end
+
+
   def get_status()
     return @status
   end

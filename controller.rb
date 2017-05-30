@@ -48,6 +48,9 @@ get '/snakesnladders/game_view' do
   @game = Game.new(@player1, @player2, "setup", @dice)
   @game.populate_board(@squares.to_i, @snakes.to_i, @ladders.to_i)
   @game.set_board_format()
+  @player1.set_position(10)
+  @player2.set_position(4)
+
   erb(:game_view)
 end
 
