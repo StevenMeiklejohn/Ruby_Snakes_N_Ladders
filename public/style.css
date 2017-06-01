@@ -131,6 +131,16 @@ html {
 }
 
 
+#button {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 50px;
+  right: 0;
+  margin: auto;
+}
+
+
 
 
 
