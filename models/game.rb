@@ -57,23 +57,6 @@ class Game
   end
 
 
-  # def player1_square(count, player)
-  #   if player.get_position() == count
-  #     return "box_red"
-  #   else
-  #     return "box"
-  #   end
-  # end
-
-  # def player2_square(count, player)
-  #   if player.get_position() == count
-  #     return "box_blue"
-  #   else 
-  #     return "box"
-  #   end
-  # end
-
-
   def get_status()
     return @status
   end
