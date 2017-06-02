@@ -82,8 +82,8 @@ html {
   color: #000;
 }
 
-.box_red {
-  background-color: red;
+.box_green {
+  background-color: green;
   color: #fff;
   border-radius: 5px;
   padding: 10px;
@@ -133,11 +133,35 @@ html {
 
 #button {
   position: absolute;
-  top:0;
+  top:100px;
   bottom: 0;
   left: 50px;
   right: 0;
   margin: auto;
+}
+
+#player1_button {
+  background-color: blue;
+  position: absolute;
+  text-align:center;
+  top: 85px;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  font-size: 13px;
+
+}
+
+#player2_button {
+  background-color: green;
+  position: absolute;
+  text-align:center;
+  top: 170px;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  font-size: 13px;
+
 }
 
 

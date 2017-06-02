@@ -44,10 +44,10 @@ class Game
 
   def player_square(count, player1, player2)
     if player1.get_position() == count
-      return "box_red"
+      return "box_green"
     end
     if player2.get_position() == count
-      binding.pry
+      # binding.pry
       return "box_blue"
     end
     return "box"
