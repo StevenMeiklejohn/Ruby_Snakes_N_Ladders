@@ -10,6 +10,9 @@ class Game
     @status = status
     @dice = dice
     @format = "wrapper5"
+
+    @player1.set_position(3)
+    @player2.set_position(2)
   end
 
 
