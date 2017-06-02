@@ -35,9 +35,9 @@ post '/snakesnladders' do
   @snakes = params[:snakes]
   @ladders = params[:ladders]
   @board = Board.new(@squares, @snakes, @ladders)
-  # @board.populate_board
-  # @game = Game.new(@player1, @player2, "setup", @dice, @board)
-  GlobalState = {:player1 => @player1, :player2 => @player2, :dice => @dice, :squares => @squares, :snakes => @snakes, :ladders => @ladders, :board => @board}
+  @board.populate_board
+  @game = Game.new(@player1, @player2, "setup", @dice, @board)
+  GlobalState = {:player1 => @player1, :player2 => @player2, :dice => @dice, :squares => @squares, :snakes => @snakes, :ladders => @ladders, :board => @board, :game => @game}
   erb(:confirm)
 end
 
@@ -49,9 +49,10 @@ get '/snakesnladders/game_view' do
   @snakes = GlobalState[:snakes]
   @ladders = GlobalState[:ladders]
   @board = GlobalState[:board]
+  @game = GlobalState[:game]
   # binding.pry
-  @board.populate_board()
-  @game = Game.new(@player1, @player2, "setup", @dice, @board)
+  # @board.populate_board()
+  # @game = Game.new(@player1, @player2, "setup", @dice, @board)
   
   @game.set_board_format()
   @player1.set_position(10)
