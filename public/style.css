@@ -136,7 +136,7 @@ html {
   top:50px;
   bottom: 0;
   left: 0px;
-  right: 750px;
+  right: 930px;
   width: 60px;
   height: 60px;
   margin: auto;
@@ -148,7 +148,7 @@ html {
   position: absolute;
   text-align:center;
   top: 430px;
-  left: 40px;
+  left: 140px;
   width: 60px;
   height: 60px;
   color: #fff;
@@ -161,7 +161,7 @@ html {
   position: absolute;
   text-align:center;
   top: 530px;
-  left: 40px;
+  left: 140px;
   width: 60px;
   height: 60px;
   color: #fff;
