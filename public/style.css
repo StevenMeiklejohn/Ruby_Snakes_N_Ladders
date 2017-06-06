@@ -121,6 +121,7 @@ html {
 
 
 .wrapper10 {
+  display: inline-block;
   position: absolute;
   top:0;
   bottom: 50px;
@@ -137,6 +138,7 @@ html {
 
 
 .wrapper5 {
+  display: inline-block;
   position: absolute;
   top:0;
   bottom: 50px;
@@ -151,14 +153,19 @@ html {
   grid-template-rows: repeat(8, 10%);
 }
 
+#buttons {
+  display: inline-block;
+  position: absolute;
+  width: 100px;
+  height: 600px;
+  margin: auto;
 
+}
 
 #button {
   position: absolute;
-  top:50px;
-  bottom: 0;
-  left: 0px;
-  right: 930px;
+  top: 100px;
+  left: 100px;
   width: 60px;
   height: 60px;
   margin: auto;
@@ -166,28 +173,28 @@ html {
 }
 
 #player1_button {
-  background-color: blue;
   position: absolute;
-  text-align:center;
-  top: 430px;
-  left: 140px;
+  top: 200px;
+  left: 100px;
   width: 60px;
   height: 60px;
   color: #fff;
   font-size: 13px;
+  background-color: blue;
+  text-align:center;
   border: 3px solid #4c525b;
 }
 
 #player2_button {
-  background-color: green;
-  position: absolute;
-  text-align:center;
-  top: 530px;
-  left: 140px;
+  top: 300px;
+  left: 100px;
   width: 60px;
   height: 60px;
   color: #fff;
   font-size: 13px;
+  background-color: green;
+  position: absolute;
+  text-align:center;
   border: 3px solid #4c525b;
 }
 
