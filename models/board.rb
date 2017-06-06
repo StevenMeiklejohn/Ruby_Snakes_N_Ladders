@@ -18,14 +18,6 @@ class Board
     return @format
   end
 
-  # def set_format()
-  #   if @squares < 50
-  #     @format = "wrapper5"
-  #   end
-  #   if @squares > 50
-  #     @format = "wrapper10"
-  #   end
-  # end
 
   def get_game_board()
     return @game_board
@@ -48,10 +40,10 @@ class Board
 
   def set_snakes()
     counter = 1
-    snake = generate_random_snake()
     while counter <= @number_of_snakes
       square = @game_board.sample()
-      if(square.get_effect() == 0 && square.get_number() > (@game_board.count() - 1) + -snake)
+      snake = generate_random_snake(square.get_number())
+      if(square.get_effect() == 0) 
         square.set_effect(-snake)
         counter += 1
       end
@@ -61,10 +53,11 @@ class Board
 
   def set_ladders()
     counter = 1
-    ladder = generate_random_ladder()
     while counter <= @number_of_ladders
+
       square = @game_board.sample()
-      if(square.get_effect() == 0 && square.get_number() < @game_board.count() + ladder)
+      ladder = generate_random_ladder(square.get_number())
+      if(square.get_effect() == 0)
         square.set_effect(ladder)
         counter += 1
       end
@@ -73,14 +66,14 @@ class Board
   end
 
 
-  def generate_random_snake()
-    range = (1..@game_board.count())
+  def generate_random_snake(square_number)
+    range = (1..square_number)
     random_number = rand(range)
     # random_snake = -(random_number)
     return random_number
   end
 
-  def generate_random_ladder()
+  def generate_random_ladder(square_number)
     range = (1..@game_board.count())
     random_number = rand(range)
     return random_number

@@ -4,20 +4,34 @@
 
 
 <div class=<%=@game.get_board_format()%> id=<%=@game.get_board_format()%>>
-<div class="box box1">1</div>
+
 <!-- generate board --> 
-<% count = 2%>
-<% type ="box"%>
 <% player1 = @game.get_player1() %>
 <% player2 = @game.get_player2() %>
+<% board = @game.get_board() %>
 
-<% while count <= @squares.to_i %>
-    <div class=<% type = @game.player_square(count, @player1, @player2) %>
-               <%= type %>> 
-               <%=count %>  
-               </div>
-               <% count += 1 %>
+
+<% for square in board %>
+  <% type ="box"%>
+  <% if square.get_effect() < 0 %>
+  <% type = "snake" %>
+  <% end %>
+  <% if square.get_effect() > 0 %>
+  <% type = "ladder" %>
+  <% end %>
+  <% if square.get_number() == player1.get_position() %>
+  <% type = "box_green" %>
+  <% end %>
+  <% if square.get_number() == player2.get_position() %>
+  <% type = "box_blue" %>
+  <% end %>
+  <div class=<%= type %>> 
+             <%= square.get_number() %>
+             <%= square.get_effect() %>
+             </div>
 <% end %>
+
+
 </div>
 
 <div class="botton" id="button">

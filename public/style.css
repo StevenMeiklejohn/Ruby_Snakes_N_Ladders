@@ -84,7 +84,7 @@ html {
 
 .box_green {
   background-color: green;
-  color: #fff;
+  color: white;
   border-radius: 5px;
   padding: 10px;
   font-size: 13px;
@@ -92,7 +92,28 @@ html {
 
 .box_blue {
   background-color: blue;
-  color: #fff;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.snake {
+  background-color: black;
+  background-image: url('./snake_head.png');
+  background-size: cover;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 13px;
+}
+
+
+.ladder {
+  background-color: black;
+  background-image: url('/ladder_crop.png');
+  background-size: cover;
+  color: white;
   border-radius: 5px;
   padding: 10px;
   font-size: 13px;
@@ -102,31 +123,32 @@ html {
 .wrapper10 {
   position: absolute;
   top:0;
-  bottom: 0;
+  bottom: 50px;
   left: 0;
   right: 0;
   margin: auto;
-
-  width: 600px;
-  height:600px;
+  max-width: 600px;
+  max-height: 600px;
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 6px;
   grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(10, 10%);
 }
 
 
 .wrapper5 {
   position: absolute;
   top:0;
-  bottom: 0;
+  bottom: 50px;
   left: 0;
   right: 0;
   margin: auto;
-  width: 600px;
-  height:600px;
+  max-width: 600px;
+  max-height: 600px;
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(5, 20%);
+  grid-gap: 6px;
+  grid-template-columns: repeat(8, 10%);
+  grid-template-rows: repeat(8, 10%);
 }
 
 

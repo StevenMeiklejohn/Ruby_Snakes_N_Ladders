@@ -55,8 +55,8 @@ get '/snakesnladders/game_view' do
   # @game = Game.new(@player1, @player2, "setup", @dice, @board)
   
   @game.set_board_format()
-  @player1.set_position(10)
-  @player2.set_position(4)
+  @player1.set_position(6)
+  @player2.set_position(7)
 
   erb(:game_view)
 end
