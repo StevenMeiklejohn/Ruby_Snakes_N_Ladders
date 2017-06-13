@@ -34,7 +34,7 @@ class Board
   end
 
   def get_square(position)
-    return @board[position]
+    return @game_board[position]
   end
 
 

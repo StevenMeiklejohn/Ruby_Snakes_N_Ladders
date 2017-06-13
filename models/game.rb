@@ -1,4 +1,5 @@
 require_relative ("./square")
+require_relative ("./board")
 require('pry')
 
 class Game
@@ -69,6 +70,11 @@ class Game
     return rand(1..6)
   end
 
+  def get_dice_number()
+    return @dice.get_number()
+  end
+
+
   def take_turn(player)
     roll = roll_dice()
     player.move(roll)
@@ -82,21 +88,21 @@ class Game
 
   def check_snake_ladder(player)
     position = player.get_position()
-    
-    if(get_square(position).get_effect() < 0)
-      player.move(@board[player.get_position].get_effect())
+    # binding.pry
+    if(@board[position].get_effect().to_i < 0)
+      player.move(@board[position].get_effect())
       puts "#{player.get_name()} landed on a snake and slides to #{player.get_position()}"
     end
 
-    if(get_square(position).get_effect() > 0)
-      player.move(@board[player.get_position].get_effect())
-      puts "#{player.get_name()} landed on a ladder and climbs to #{player.get_position()}"
+    if(@board[position].get_effect() > 0)
+      player.move(@board[position].get_effect().to_i)
+      # puts "#{player.get_name()} landed on a ladder and climbs to #{player.get_position()}"
       if(check_win(player) == "win")
-        puts "Congratulations #{player.get_name()}! You win"
+        # puts "Congratulations #{player.get_name()}! You win"
         return
       end
       else
-        puts "#{player.get_name()} moves to #{player.get_position()}"
+        return
     end
   end
 
